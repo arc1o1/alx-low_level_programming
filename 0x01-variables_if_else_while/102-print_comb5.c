@@ -16,10 +16,10 @@ int main(void)
 		b = '0';
 		while (b <= '9')
 		{
-			c = '0';
+			c = a;
 			while (c <= '9')
 			{
-				d = '0';
+				d = '1';
 				while (d <= '9')
 				{
 					putchar(a);

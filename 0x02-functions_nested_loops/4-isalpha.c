@@ -3,7 +3,7 @@
  *
  * @c: character parameter to check
  *
- * Return: 1 if letter, 0 otherwise
+ * Return: 1 if letter, 0 otherwise 
  */
 int _isalpha(int c)
 {

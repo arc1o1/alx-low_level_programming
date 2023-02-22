@@ -1,5 +1,5 @@
 /**
- * _abs - calculates absolute value
+ * _abs - calculate absolute value
  *
  * @n: integer parameter
  *

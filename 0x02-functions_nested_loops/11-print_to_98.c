@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * print_to_98 - prints n..98
+ * print_to_98 - prints n to 98
  *
  * @n: number to start at
  *

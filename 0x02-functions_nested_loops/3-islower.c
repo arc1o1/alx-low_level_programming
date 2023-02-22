@@ -1,7 +1,7 @@
 /**
  * _islower - print alphabet out
  *
- * @c: character
+ * @c: character 
  *
  * Return: 1 if lower, 0 otherwise
  */

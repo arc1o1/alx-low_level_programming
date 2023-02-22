@@ -1,5 +1,5 @@
 /**
- * add - adds two numbers
+ * add - add two numbers
  *
  * @a: first num to add to b
  * @b: second num to add to a

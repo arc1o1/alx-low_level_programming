@@ -11,11 +11,7 @@ int print_times_table(int m)
 	i = 0;
 	pTens = 0;
 	pOnes = 0;
-	if (m < 0 && m > 15)
-	{
-		break;
-	}
-	else
+	if (m >= 0 && m <= 15)
 	{
 		while (i <= 15)
 	    {

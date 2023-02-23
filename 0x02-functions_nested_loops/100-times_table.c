@@ -1,42 +1,49 @@
 #include "main.h"
+
 /**
- * times_table - prints out 0..9 times table
- *
- * Return: always void
+ * print_times_table - Print the `n` times table, starting with 0.
+ * Description: If `n` is greater than 15 or less than 0, print nothing.
+ * @n: int type number
  */
-int print_times_table(int m)
+void print_times_table(int n)
 {
-	int i, n, pTens, pOnes, lineTotal;
+	int x = 0, y, z;
 
-	i = 0;
-	pTens = 0;
-	pOnes = 0;
-	if (m >= 0 && m <= 15)
+	if (n > 15 || n < 0)
+		return;
+	while (x <= n)
 	{
-		while (i <= 15)
-	    {
-			lineTotal = 0;
-			while (n <= 15)
-		    {
-				lineTotal = n * i;
+		for (y = 0; y <= n; y++)
+		{
+			z = x * y;
+			if (z > 99)
+			{
+				_putchar(z / 100 + '0');
+				_putchar((z / 10 % 10) + '0');
+				_putchar(z % 10 + '0');
+			}
+			else if (z > 9)
+			{
+				_putchar(' ');
+				_putchar(z / 10 + '0');
+				_putchar(z % 10 + '0');
+			}
+			else if (y != 0)
+			{
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(z + '0');
+			}
+			else
+				_putchar(z + '0');
 
-				pOnes = lineTotal % 10; /* grab last digit */
-				pTens = (lineTotal - pOnes) / 10;
-				/* ^^grab first digit of two digit number^^ */
-				if (pTens == 0 && n > 0)
-					_putchar(' ');
-				else if (n > 0)
-					_putchar(pTens + '0');
-				_putchar(pOnes + '0');
-				if (n == m)
-					break;
+			if (y != n)
+			{
 				_putchar(',');
 				_putchar(' ');
-				n++;
-		    }
-		    _putchar('\n');
-		    i++;
-	    }
+			}
+		}
+		_putchar('\n');
+		x++;
 	}
 }
-

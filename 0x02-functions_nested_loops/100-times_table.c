@@ -4,7 +4,7 @@
  *
  * Return: always void
  */
-int times_table(int m)
+int print_times_table(int m)
 {
 	int i, n, pTens, pOnes, lineTotal;
 
@@ -13,33 +13,34 @@ int times_table(int m)
 	pOnes = 0;
 	if (m < 0 && m > 15)
 	{
-	    break;
+		break;
 	}
 	else
 	{
-	    while (i <= 15)
+		while (i <= 15)
 	    {
-		    lineTotal = 0;
-		    while (n <= 15)
+			lineTotal = 0;
+			while (n <= 15)
 		    {
-			    lineTotal = n * i;
+				lineTotal = n * i;
 
-			    pOnes = lineTotal % 10; /* grab last digit */
-			    pTens = (lineTotal - pOnes) / 10;
-			    /* ^^grab first digit of two digit number^^ */
-			    if (pTens == 0 && n > 0)
-				    _putchar(' ');
-			    else if (n > 0)
-				    _putchar(pTens + '0');
-			    _putchar(pOnes + '0');
-			    if (n == m)
-				    break;
-			    _putchar(',');
-			    _putchar(' ');
-			    n++;
+				pOnes = lineTotal % 10; /* grab last digit */
+				pTens = (lineTotal - pOnes) / 10;
+				/* ^^grab first digit of two digit number^^ */
+				if (pTens == 0 && n > 0)
+					_putchar(' ');
+				else if (n > 0)
+					_putchar(pTens + '0');
+				_putchar(pOnes + '0');
+				if (n == m)
+					break;
+				_putchar(',');
+				_putchar(' ');
+				n++;
 		    }
 		    _putchar('\n');
 		    i++;
 	    }
+		
 	}
 }

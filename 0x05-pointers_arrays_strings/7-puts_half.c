@@ -8,16 +8,15 @@
  */
 void puts_half(char *str)
 {
-	int length, charsToPrint = 0;
+	int i;
 
-	while (*(str + length) != '\0')
-		length++;
-	if (!(length % 2)) /* if uneven number */
-		charsToPrint = (length - 1) / 2;
-	else
-		charsToPrint = length / 2;
-	charsToPrint++;
-	while (charsToPrint < length)
-		_putchar(*(str + charsToPrint++));
+	for (i = 0; str[i] != '\0'; i++)
+		;
+
+	i++;
+	for (i /= 2; str[i] != '\0'; i++)
+	{
+		_putchar(str[i]);
+	}
 	_putchar('\n');
 }

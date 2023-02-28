@@ -1,5 +1,5 @@
 /**
- * rev_string - reverses given string
+ * rev_string - reverse given string
  *
  * @s: string to reverse
  *

@@ -1,5 +1,5 @@
 /**
- * _strcat - concatanates two strings
+ * _strcat - concatanate two strings
  * @dest: destination string
  * @src: string to add to end of dest
  *

@@ -1,4 +1,4 @@
-# 0x06- Even more pointers, arrays, & strings
+# 0x07-Even more pointers, arrays, & strings
 
 In this project we will be using pointers, arrays, and strings to complete different tasks. Read more about the goals below:
 

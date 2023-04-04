@@ -1,44 +1,52 @@
 #include "lists.h"
+#include <stdio.h>
 /**
- * insert_nodeint_at_index - inserts node at given index, preserving list
- * @head: head of list
- * @idx: index to put node at
- * @n: integer data for new node
- *
- * Return: pointer to new node at specified index, NULL if not found
+ * insert_nodeint_at_index - insert a new node at a given position
+ * @head: double pointer to head
+ * @index: insert node at this index, starting count at 0
+ * @n: value to store in node
+ * Return: Address of new node or NULL if failed
  */
-listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int index, int n)
 {
-	unsigned int ctr = 0;
-	listint_t *temp_h, *new_node;
+	listint_t *new;
+	listint_t *current;
+	unsigned int count;
 
-	if (!head || !*head) /* EMPTY list */
+	if (head == NULL)
 		return (NULL);
-	temp_h = *head;
-	if (idx == 0) /* insert as first element */
+
+	current = *head;
+	for (count = 1; current && count < index; count++)
 	{
-		new_node = malloc(sizeof(listint_t));
-		if (!new_node)
+		current = current->next;
+		if (current == NULL)
 			return (NULL);
-		new_node->n = n; /* set data */
-		new_node->next = temp_h;
-		*head = new_node;
-		return (new_node);
 	}
-	while (temp_h)
+
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
 	{
-		if (ctr + 1 == idx) /* insert node here */
-		{
-			new_node = malloc(sizeof(listint_t));
-			if (!new_node)
-				return (NULL);
-			new_node->n = n; /* set data */
-			new_node->next = temp_h->next;
-			temp_h->next = new_node;
-			return (new_node);
-		}
-		temp_h = temp_h->next;
-		ctr++;
+		free(new);
+		return (NULL);
 	}
-	return (NULL); /* didn't find node */
+	new->n = n;
+
+	if (index == 0)
+	{
+		*head = new;
+		new->next = current;
+	}
+	else if (current->next)
+	{
+		new->next = current->next;
+		current->next = new;
+	}
+	else
+	{
+		new->next = NULL;
+		current->next = new;
+	}
+
+	return (new);
 }

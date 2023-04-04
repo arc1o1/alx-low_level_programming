@@ -1,30 +1,36 @@
 #include "lists.h"
 #include <stdio.h>
-/**
- * print_listint_safe - prints the elements in linked list
- * @h: head of listint_t type
- *
- * Return: size_t, number of nodes. Exits with 98 on failure
- */
-size_t print_listint_safe(const listint_t *h)
-{
-	size_t n_nodes = 0;
-	const listint_t *temp_h = NULL, *loop_node= NULL;
 
-	temp_h = h;
-	if (!h)
+/**
+ * print_listint_safe - Print a `listint_t` linked list including mem addresses
+ * @head: head of linked list
+ * Description: Go through the list only once.
+ * Return: number of nodes in list. If fails, exit with status 98.
+ */
+size_t print_listint_safe(const listint_t *head)
+{
+	const listint_t *current;
+	size_t count;
+	const listint_t *hold;
+
+	current = head;
+	if (current == NULL)
 		exit(98);
-	while (temp_h)
+
+	count = 0;
+	while (current != NULL)
 	{
-		if (h->next == temp_h && n_nodes > 2)
+		hold = current;
+		current = current->next;
+		count++;
+		printf("[%p] %d\n", (void *)hold, hold->n);
+
+		if (hold < current)
 		{
-			loop_node = temp_h;
-			printf("loop node: [%p] %d\n", (void *)loop_node, loop_node->n);
-			exit(98);
+			printf("-> [%p] %d\n", (void *)current, current->n);
+			break;
 		}
-		printf("[%p] %d\n", (void *)temp_h, temp_h->n);
-		temp_h = temp_h->next;
-		n_nodes++;
 	}
-	return (n_nodes);
+
+	return (count);
 }

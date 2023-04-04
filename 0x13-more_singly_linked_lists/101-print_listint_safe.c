@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_listint_safe - Print a `listint_t` linked list including mem addresses
+ * print_listint_safe - Print a 'listint_t' linked list including mem addresses
  * @head: head of linked list
  * Description: Go through the list only once.
  * Return: number of nodes in list. If fails, exit with status 98.

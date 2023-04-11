@@ -1,24 +1,28 @@
 #include "main.h"
+#include <stdio.h>
 /**
- * print_binary - prints a binary number using bit shifting and masks
- * @n: number to print
- *
- * Return: always void
+ * print_binary - print binary representation of a number
+ * @n: decimal number to print as binary
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int mask = 32768; /* 1000 0000 0000 0000 */
-	char hit_rel_flag = 0;
+	unsigned long int temp;
+	int shifts;
 
-	while (mask > 0)
+	if (n == 0)
 	{
-		if ((n & mask) == 0 && (hit_rel_flag || mask == 0x01))
-			_putchar('0');
-		else if ((n & mask) != 0)
-		{
-			_putchar('1');
-			hit_rel_flag = 1;
-		}
-		mask = mask >> 1;
+		printf("0");
+		return;
+	}
+
+	for (temp = n, shifts = 0; (temp >>= 1) > 0; shifts++)
+		;
+
+	for (; shifts >= 0; shifts--)
+	{
+		if ((n >> shifts) & 1)
+			printf("1");
+		else
+			printf("0");
 	}
 }

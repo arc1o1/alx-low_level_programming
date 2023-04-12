@@ -1,17 +1,16 @@
+#include "main.h"
+
 /**
- * get_endianness - gets the endianness of the CPU running
- *
- * Return: 0 if big endian, 1 if little endian
+ * get_endianness - check endianness
+ * Return: 0 if big endian, or 1 if little endian
  */
 int get_endianness(void)
 {
-	unsigned int i = 1;
-	char *c = (char *)&i;
+	int num;
 
-	/* c points to integer, will only pull first byte of integer */
-	/* if it is 1 then it is little endian (last byte stored first) */
-	/* if it is 0 then it is big endian because the data is stored last */
-	if (*c)
+	num = 1;
+	if (*(char *)&num == 1)
 		return (1);
-	return (0);
+	else
+		return (0);
 }
